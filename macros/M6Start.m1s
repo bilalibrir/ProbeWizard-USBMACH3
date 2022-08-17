@@ -126,7 +126,7 @@ Function ProbeZ(Dir,DMax,Latch,FRate1,FRate2)
 	Dim AbsIncF
 	ProbeZ=999999
 	Zstart = GetDRO(2)
-	Ftmp = FeedRate() 'FeedRate()
+	Ftmp = GetOEMDRO(818) 'FeedRate()
 	AbsIncF=GetOEMLED(49)
 	'Fast Probe Z
 	Code "G91"
@@ -192,7 +192,7 @@ Function SafeMoveX(X1, F1) As Boolean 'return 1 (error) if probe tripped
 	Dim AbsIncF
 	SafeMoveX=True
 	Xstart = GetDRO(0)
-	Ftmp = FeedRate() 'FeedRate()
+	Ftmp = GetOEMDRO(818) 'FeedRate()
 	AbsIncF=GetOEMLED(49)
 	Code "G91"
 	Code "F" & F1
@@ -223,7 +223,7 @@ Function SafeMoveY(Y1, F1) As Boolean 'return 1 (error) if probe tripped
 	Dim AbsIncF
 	SafeMoveY=True
 	Ystart = GetDRO(1)
-	Ftmp = FeedRate() 'FeedRate()
+	Ftmp = GetOEMDRO(818) 'FeedRate()
 	AbsIncF=GetOEMLED(49)
 	Code "G91"
 	Code "F" & F1
@@ -256,7 +256,7 @@ Function SafeMoveXY(X1, Y1, F1) As Boolean 'return 1 (error) if probe tripped
 	SafeMoveXY=True
 	Xstart = GetDRO(0)
 	Ystart = GetDRO(1)
-	Ftmp = FeedRate() 'FeedRate()
+	Ftmp = GetOEMDRO(818) 'FeedRate()
 	AbsIncF=GetOEMLED(49)
 	Code "G91"
 	Code "F" & F1
@@ -288,7 +288,7 @@ Function SafeMoveZ(Z1, F1) As Boolean 'return 1 (error) if probe tripped
 	Dim AbsIncF
 	SafeMoveZ=True
 	Zstart = GetDRO(2)
-	Ftmp = FeedRate() 'FeedRate()
+	Ftmp = GetOEMDRO(818) 'FeedRate()
 	AbsIncF=GetOEMLED(49)
 	Code "G91"
 	Code "F" & F1
