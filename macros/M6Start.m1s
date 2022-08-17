@@ -98,7 +98,15 @@ CurrentSpindle = GetOEMDRO(817)
 		PushMSG("M6Start Script is interrupted")
 		Exit Sub 
 	End If
-	If Not SafeMoveXY(ToolChangeAbsXPos-GetOEMDRO(83),ToolChangeAbsYPos-GetOEMDRO(84),CurrentFeed) Then 
+	'If Not SafeMoveX.Y(ToolChangeAbsXPos-GetOEMDRO(83),ToolChangeAbsYPos-GetOEMDRO(84),CurrentFeed) Then 
+	'	PushMSG("M6Start Script is interrupted")
+	'	Exit Sub 
+	'End If
+	If Not SafeMoveX(ToolChangeAbsXPos-GetOEMDRO(83),CurrentFeed) Then 
+		PushMSG("M6Start Script is interrupted")
+		Exit Sub 
+	End If
+	If Not SafeMoveY(ToolChangeAbsYPos-GetOEMDRO(84),CurrentFeed) Then 
 		PushMSG("M6Start Script is interrupted")
 		Exit Sub 
 	End If

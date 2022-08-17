@@ -87,7 +87,15 @@ CurrentFeed = GetOEMDRO(818) 'FeedRate()
 	'Save Z start position
 	Zpos = GetDRO(2)
 	'Safe Go to probe position
-	If Not SafeMoveXY((XYclearance),EdgeLength,CurrentFeed) Then
+	'If Not SafeMoveX.Y((XYclearance),EdgeLength,CurrentFeed) Then
+	'	PushMSG("Manually return to the starting position and repeat the search")
+	'	Exit Sub 
+	'End If
+	If Not SafeMoveX((XYclearance),CurrentFeed) Then
+		PushMSG("Manually return to the starting position and repeat the search")
+		Exit Sub 
+	End If
+	If Not SafeMoveY(EdgeLength,CurrentFeed) Then
 		PushMSG("Manually return to the starting position and repeat the search")
 		Exit Sub 
 	End If
@@ -109,7 +117,15 @@ CurrentFeed = GetOEMDRO(818) 'FeedRate()
 		Exit Sub 
 	End If
 	'Move to Y+ start position
-	If Not SafeMoveXY(XHit-ProbeD/2-GetDRO(0)-EdgeLength,-XYclearance-EdgeLength,CurrentFeed) Then 
+	'If Not SafeMoveX.Y(XHit-ProbeD/2-GetDRO(0)-EdgeLength,-XYclearance-EdgeLength,CurrentFeed) Then 
+	'	PushMSG("Return to the search position is interrupted")
+	'	Exit Sub 
+	'End If
+	If Not SafeMoveX(XHit-ProbeD/2-GetDRO(0)-EdgeLength,CurrentFeed) Then 
+		PushMSG("Return to the search position is interrupted")
+		Exit Sub 
+	End If
+	If Not SafeMoveY(-XYclearance-EdgeLength,CurrentFeed) Then 
 		PushMSG("Return to the search position is interrupted")
 		Exit Sub 
 	End If
@@ -130,7 +146,15 @@ CurrentFeed = GetOEMDRO(818) 'FeedRate()
 		PushMSG("Return to the search position is interrupted")
 		Exit Sub 
 	End If
-	If Not SafeMoveXY(EdgeLength,YHit+ProbeD/2-GetDRO(1),CurrentFeed) Then 
+	'If Not SafeMoveX.Y(EdgeLength,YHit+ProbeD/2-GetDRO(1),CurrentFeed) Then 
+	'	PushMSG("Return to the search position is interrupted")
+	'	Exit Sub 
+	'End If
+	If Not SafeMoveX(EdgeLength,CurrentFeed) Then 
+		PushMSG("Return to the search position is interrupted")
+		Exit Sub 
+	End If
+	If Not SafeMoveY(YHit+ProbeD/2-GetDRO(1),CurrentFeed) Then 
 		PushMSG("Return to the search position is interrupted")
 		Exit Sub 
 	End If

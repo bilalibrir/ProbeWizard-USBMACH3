@@ -144,7 +144,15 @@ CurrentFeed = GetOEMDRO(818) 'FeedRate()
 		PushMSG("Return to the search position is interrupted")
 		Exit Sub 
 	End If
-	If Not SafeMoveXY(-EdgeLength,YHit+ProbeD/2-GetDRO(1),CurrentFeed) Then 
+	'If Not SafeMoveX.Y(-EdgeLength,YHit+ProbeD/2-GetDRO(1),CurrentFeed) Then 
+	'	PushMSG("Return to the search position is interrupted")
+	'	Exit Sub 
+	'End If
+	If Not SafeMoveX(-EdgeLength,CurrentFeed) Then 
+		PushMSG("Return to the search position is interrupted")
+		Exit Sub 
+	End If
+	If Not SafeMoveY(YHit+ProbeD/2-GetDRO(1),CurrentFeed) Then 
 		PushMSG("Return to the search position is interrupted")
 		Exit Sub 
 	End If

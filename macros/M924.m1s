@@ -111,7 +111,15 @@ CurrentSpindle = GetOEMDRO(817)
 		PushMSG("Tool Diameter Probing is interrupted")
 		Exit Sub 
 	End If
-	If Not SafeMoveXY(ToolSetterAbsXPos-GetOEMDRO(83),ToolSetterAbsYPos-GetOEMDRO(84),CurrentFeed) Then 
+	'If Not SafeMoveX.Y(ToolSetterAbsXPos-GetOEMDRO(83),ToolSetterAbsYPos-GetOEMDRO(84),CurrentFeed) Then 
+	'	PushMSG("Tool Diameter Probing is interrupted")
+	'	Exit Sub 
+	'End If
+	If Not SafeMoveX(ToolSetterAbsXPos-GetOEMDRO(83),CurrentFeed) Then 
+		PushMSG("Tool Diameter Probing is interrupted")
+		Exit Sub 
+	End If
+	If Not SafeMoveY(ToolSetterAbsYPos-GetOEMDRO(84),CurrentFeed) Then 
 		PushMSG("Tool Diameter Probing is interrupted")
 		Exit Sub 
 	End If
