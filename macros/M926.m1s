@@ -91,7 +91,7 @@ End If
 
 
 CurrentFeed = GetOEMDRO(818) 'FeedRate()
-CurrentSpindle = GetOEMDRO(39) 
+CurrentSpindle = GetOEMDRO(817) 
 
 'main working
 
@@ -224,7 +224,7 @@ Function SafeMoveX(X1, F1) As Boolean 'return 1 (error) if probe tripped
 		PushMSG("Error! Probe tripped during X movement")
 		Code "M05"
 		Sleep(125)
-		Code "S" & CurrentSpindle
+		Code "S" & GetOEMDRO(817)
 		Sleep(125)
 		SetOEMDRO(818,Ftmp)
 		Sleep(125)
@@ -255,7 +255,7 @@ Function SafeMoveY(Y1, F1) As Boolean 'return 1 (error) if probe tripped
 		PushMSG("Error! Probe tripped during Y movement")
 		Code "M05"
 		Sleep(125)
-		Code "S" & CurrentSpindle
+		Code "S" & GetOEMDRO(817)
 		Sleep(125)
 		SetOEMDRO(818,Ftmp)
 		Sleep(125)
@@ -289,7 +289,7 @@ Function SafeMoveXY(X1, Y1, F1) As Boolean 'return 1 (error) if probe tripped
 		PushMSG("Error! Probe tripped during XY movement")
 		Code "M05"
 		Sleep(125)
-		Code "S" & CurrentSpindle
+		Code "S" & GetOEMDRO(817)
 		Sleep(125)
 		SetOEMDRO(818,Ftmp)
 		Sleep(125)
@@ -321,7 +321,7 @@ Function SafeMoveZ(Z1, F1) As Boolean 'return 1 (error) if probe tripped
 		PushMSG("Error! Probe tripped during Z movement")
 		Code "M05"
 		Sleep(125)
-		Code "S" & CurrentSpindle
+		Code "S" & GetOEMDRO(817)
 		Sleep(125)
 		SetOEMDRO(818,Ftmp)
 		Sleep(125)

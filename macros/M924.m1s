@@ -100,7 +100,7 @@ End If
 
 
 CurrentFeed = GetOEMDRO(818) 'FeedRate()
-CurrentSpindle = GetOEMDRO(39) 
+CurrentSpindle = GetOEMDRO(817) 
 
 'main working
 
