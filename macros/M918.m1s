@@ -395,7 +395,7 @@ Function SafeMoveZ(Z1, F1) As Boolean 'return 1 (error) if probe tripped
 	Call WaitProbeReady()	
 	Code "G31 Z" & Z1
 	While IsMoving()
-		Sleep(100)
+	'	Sleep(100)
 	Wend
 	ZHit = GetOEMDRO(85)
 	Call SetLED49(AbsIncF)
