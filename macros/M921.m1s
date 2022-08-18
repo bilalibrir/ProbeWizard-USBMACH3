@@ -250,7 +250,7 @@ Function SafeMoveX(X1, F1) As Boolean 'return 1 (error) if probe tripped
 	Code "G31 X" & X1
 	While IsMoving()
 	Wend
-	XHit = GetOEMDRO(800)
+	XHit = GetOEMDRO(83)
 	Call SetLED49(AbsIncF)
 	If Abs(XHit - Xstart - X1) > 0.01 Then
 		SafeMoveX=False
@@ -275,7 +275,7 @@ Function SafeMoveY(Y1, F1) As Boolean 'return 1 (error) if probe tripped
 	Code "G31 Y" & Y1
 	While IsMoving()
 	Wend
-	YHit = GetOEMDRO(801)
+	YHit = GetOEMDRO(84)
 	Call SetLED49(AbsIncF)
 	If Abs(YHit - Ystart - Y1) > 0.01 Then
 		SafeMoveY=False
@@ -302,8 +302,8 @@ Function SafeMoveXY(X1, Y1, F1) As Boolean 'return 1 (error) if probe tripped
 	Code "G31 X" & X1 & "Y" & Y1
 	While IsMoving()
 	Wend
-	XHit = GetOEMDRO(800)
-	YHit = GetOEMDRO(801)
+	XHit = GetOEMDRO(83)
+	YHit = GetOEMDRO(84)
 	Call SetLED49(AbsIncF)
 '	PushMSG("XHit=" & XHit &", Xstart=" & Xstart & ", X1=" & X1 & ", Ftmp=" & Ftmp)
 '	PushMSG("XHit - Xstart - X1=" & XHit - Xstart - X1)
@@ -333,7 +333,7 @@ Function SafeMoveZ(Z1, F1) As Boolean 'return 1 (error) if probe tripped
 	While IsMoving()
 		Sleep(100)
 	Wend
-	ZHit = GetOEMDRO(802)
+	ZHit = GetOEMDRO(85)
 	Call SetLED49(AbsIncF)
 	If Abs(ZHit - Zstart - Z1) > 0.01 Then
 		SafeMoveZ=False
